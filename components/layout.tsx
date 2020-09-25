@@ -1,14 +1,14 @@
 import Head from "next/head";
-import Link from "next/link";
-import { Flex, Box } from "theme-ui";
+import Nav from "./nav";
 import config from "../config.json";
 import styles from "./layout.module.scss";
+import { Box, Flex, Heading } from "theme-ui";
 
 export default function Layout({ children, pageTitle }) {
   return (
     <Flex
       sx={{
-        flexDirection: ["column", "column", "row"],
+        justifyContent: "center",
       }}
     >
       <Head>
@@ -17,18 +17,13 @@ export default function Layout({ children, pageTitle }) {
       </Head>
       <Box
         sx={{
-          flex: "1",
-          maxWidth: ["auto", "auto", "300px"],
-          minHeight: ["auto", "auto", "100vh"],
+          width: "100%",
+          maxWidth: "1080px",
         }}
-        bg="primary"
       >
-        Box
+        <Nav />
+        {children}
       </Box>
-      <Box sx={{ flex: "3" }} bg="secondary">
-        Box
-      </Box>
-      {children}
     </Flex>
   );
 }
